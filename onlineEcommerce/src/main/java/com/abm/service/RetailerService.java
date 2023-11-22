@@ -1,10 +1,12 @@
 package com.abm.service;   //new
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.abm.entity.Product;
 import com.abm.entity.Retailer;
 import com.abm.exception.RetailerException;
 import com.abm.repo.RetailerRepository;
@@ -37,5 +39,14 @@ public class RetailerService {
 	public void deleteAccountById(Long id) {
 		retailerRepository.deleteById(id);
     }
+	
+	public List<Product> findByRetailerId(Long retailerId) {
+        return retailerRepository.findByRetailerId(retailerId);
+    }
+	
+//	public Product updateProduct(Product product) {
+//		return retailerRepository.save(product);
+//	}
+		
 
 }

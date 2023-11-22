@@ -1,16 +1,22 @@
 package com.abm.controller;     //new
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.abm.entity.Product;
 import com.abm.entity.Retailer;
 import com.abm.entity.User;
+import com.abm.exception.ProductException;
 import com.abm.exception.RetailerException;
 import com.abm.repo.RetailerRepository;
 import com.abm.repo.UserRepository;
@@ -56,6 +62,7 @@ public class RetailerController {
 				LoginStatus status = new LoginStatus();
 				status.setStatus(true);
 				status.setName(retailer.getEmail());
+				status.setRetailerId(retailerDetails.getId());
 				return status;
 			}
 			catch (RetailerException e) {
@@ -65,6 +72,10 @@ public class RetailerController {
 				return status;
 			}
 		}
-
+	    
+	    @GetMapping("/{retailerId}")
+	    public List<Product> findByRetailerId(@PathVariable Long retailerId) {
+	        return retailerService.findByRetailerId(retailerId);
+	    }
 
 }

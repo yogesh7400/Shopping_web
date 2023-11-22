@@ -27,19 +27,8 @@ import com.abm.service.ProductService;
 @CrossOrigin
 public class ProductController {
 
-    @Autowired
+	@Autowired
     private ProductService productService;
-
-    @PostMapping("/create")
-    public Object createProduct(@RequestBody CreateProductRequest req) {
-        try {
-            Product createdProduct = productService.createProduct(req);
-            return "Products details added successfully!";
-        } catch (ProductException e) {
-            return "Bad Request: " + e.getMessage();
-        }
-    }
-
 
     @DeleteMapping("/delete/{productId}")
     public String deleteProduct(@PathVariable Long productId) {
@@ -51,30 +40,11 @@ public class ProductController {
         }
     }
 
-    @PutMapping("/update/{productId}")
-    public Object updateProduct(@PathVariable Long productId, @RequestBody Product req) {
-        try {
-            Product updatedProduct = productService.updateProduct(productId, req);
-            return updatedProduct;
-        } catch (ProductException e) {
-            return "Not Found: " + e.getMessage();
-        }
-    }
-
     @GetMapping("/all")
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/{productId}")
-    public Object getProductById(@PathVariable Long productId) {
-        try {
-            Product product = productService.findProductById(productId);
-            return product;
-        } catch (ProductException e) {
-            return "Not Found: " + e.getMessage();
-        }
-    }
 
     @GetMapping("/category/{category}")
     public List<Product> findProductsByCategory(@PathVariable String category) {

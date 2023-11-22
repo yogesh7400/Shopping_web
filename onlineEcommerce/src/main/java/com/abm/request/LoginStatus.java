@@ -2,7 +2,7 @@ package com.abm.request;
 
 
 public class LoginStatus extends Status {
-	private int retailerId;
+	private Long retailerId;
 	private String name;
 	private long userId;
 	
@@ -13,10 +13,11 @@ public class LoginStatus extends Status {
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-	public int getRetailerId() {
+	
+	public Long getRetailerId() {
 		return retailerId;
 	}
-	public void setRetailerId(int retailerId) {
+	public void setRetailerId(Long retailerId) {
 		this.retailerId = retailerId;
 	}
 	public String getName() {

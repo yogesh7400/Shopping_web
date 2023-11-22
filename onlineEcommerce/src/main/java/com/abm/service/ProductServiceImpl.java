@@ -104,20 +104,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product updateProduct(Long productId,Product req) throws ProductException {
-		Product product=findProductById(productId);
-		
-		if(req.getQuantity()!=0) {
-			product.setQuantity(req.getQuantity());
-		}
-		if(req.getDescription()!=null) {
-			product.setDescription(req.getDescription());
-		}
-		
-		
-			
-		
-		return productRepository.save(product);
+	public Product updateProduct(Product req) throws ProductException {
+
+		return productRepository.save(req);
 	}
 
 	@Override
