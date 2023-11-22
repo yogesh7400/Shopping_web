@@ -1,14 +1,22 @@
-package com.abm.repo;
+package com.abm.repo;         //new
+
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.abm.entity.Retailer;
 import com.abm.entity.User;
 
 public interface RetailerRepository extends JpaRepository<Retailer, Long> {
 
-	Retailer findByEmail(String email);
-	
+	//login
+		public Optional<Retailer> findByEmailAndPassword(String email, String password);
+		
+		//register
+		@Query("select count(c) from Retailer c where c.email = ?1")
+		public Long findIfRetailerExists(String email);
+			
 	
 
 }

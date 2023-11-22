@@ -1,4 +1,4 @@
-package com.abm.controller;
+package com.abm.controller;               //new
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class ProductController {
     public Object createProduct(@RequestBody CreateProductRequest req) {
         try {
             Product createdProduct = productService.createProduct(req);
-            return createdProduct;
+            return "Products details added successfully!";
         } catch (ProductException e) {
             return "Bad Request: " + e.getMessage();
         }
