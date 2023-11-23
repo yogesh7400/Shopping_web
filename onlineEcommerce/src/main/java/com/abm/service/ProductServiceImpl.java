@@ -189,5 +189,14 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productRepository.findTop10ByOrderByCreatedAtDesc();
 	}
+	
+	
+	@Override
+	public Long cancelProduct(Long id) {
+		Product p= productRepository.findById(id).get();
+		p.setStatus("cancel");
+		productRepository.save(p);
+		return id;
+	}
 
 }

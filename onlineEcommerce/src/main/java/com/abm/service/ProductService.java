@@ -32,5 +32,7 @@ public interface ProductService {
 			Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber, Integer pageSize);
 
 	public List<Product> recentlyAddedProduct();
+	
+	public Long cancelProduct(Long id) ;
 
 }

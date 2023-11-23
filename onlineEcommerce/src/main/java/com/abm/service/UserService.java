@@ -9,12 +9,11 @@ import com.abm.entity.User;
 public interface UserService {
 	
 	public User findUserById(Long userId) throws UserException;
+		
+	public User findUserByJwt(String jwt) throws UserException;
 	
 	public List<User> findAllUsers();
-
-	public User getDefaultUser() throws UserException;
-
-	public List<Address> getUserAddress(Long userId);
+ 
 
 	
 

@@ -59,9 +59,19 @@ public class Product {
     @Column(name = "image_url")
     private String imageUrl;
 
+    @Column(name="status")
+    private String Status;
     
 
-    @ManyToOne()
+    public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
+	}
+
+	@ManyToOne()
     @JoinColumn(name="category_id")
     private Category category;
     
