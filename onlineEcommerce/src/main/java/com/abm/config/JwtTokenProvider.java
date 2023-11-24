@@ -11,6 +11,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
+import com.abm.entity.Retailer;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -49,5 +51,12 @@ public class JwtTokenProvider {
 		}
 		return String.join(",",auths);
 	}
+
+	public String generateToken(Retailer retailer) {
+		// TODO Auto-generated method stub
+		return "sdfghjkdfghjkuytruiygdfuygh4567890-987";
+	}
+
+	
 
 }

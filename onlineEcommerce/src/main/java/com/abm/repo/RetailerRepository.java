@@ -22,6 +22,8 @@ public interface RetailerRepository extends JpaRepository<Retailer, Long> {
 		//fetch
 		@Query("select p from Product p where p.retailer.id = ?1")
 		public List<Product> findByRetailerId(Long retailerId);
+		
+		public Retailer findByEmail(String email);
 			
 	
 
